@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.hesen</groupId>
+	<artifactId>share</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>share</name>
+	<url>http://maven.apache.org</url>
+
+	<modules>
+		<module>share-common</module>
+		<module>share-detail</module>
+	</modules>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+
+		<springboot.version>1.5.1.RELEASE</springboot.version>
+		<mysql.connector.java.version>5.1.39</mysql.connector.java.version>
+		<spring.boot.mybatis.version>1.2.0</spring.boot.mybatis.version>
+		<slf4j.version>1.7.2</slf4j.version>
+		<fasterxml.jackson.core.version>2.8.6</fasterxml.jackson.core.version>
+		<alibaba.fastjson.version>1.1.39</alibaba.fastjson.version>
+		<commons.lang3.version>3.4</commons.lang3.version>
+		<commons.beanutils.version>1.9.3</commons.beanutils.version>
+		<javax.servlet.version>2.5</javax.servlet.version>
+		<httpcomponents.version>4.5.1</httpcomponents.version>
+		<zxing.version>3.3.0</zxing.version>
+		<poi.version>3.15</poi.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- MySQL 连接驱动依赖 -->
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql.connector.java.version}</version>
+			</dependency>
+
+			<!--redis-->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-data-redis</artifactId>
+				<version>${springboot.version}</version>
+			</dependency>
+
+			<!--Spring Boot Mybatis-->
+			<dependency>
+				<groupId>org.mybatis.spring.boot</groupId>
+				<artifactId>mybatis-spring-boot-starter</artifactId>
+				<version>${spring.boot.mybatis.version}</version>
+			</dependency>
+
+			<!--alibaba fastjson-->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>${alibaba.fastjson.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-databind</artifactId>
+				<version>${fasterxml.jackson.core.version}</version>
+			</dependency>
+
+			<!--org.slf4j-->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+
+			<!--commons-->
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>${commons.lang3.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>commons-beanutils</groupId>
+				<artifactId>commons-beanutils</artifactId>
+				<version>${commons.beanutils.version}</version>
+			</dependency>
+
+
+			<!--servlet-api-->
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>servlet-api</artifactId>
+				<version>${javax.servlet.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<!--httpcomponents-->
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpclient</artifactId>
+				<version>${httpcomponents.version}</version>
+			</dependency>
+
+			<!--google zxing-->
+			<dependency>
+				<groupId>com.google.zxing</groupId>
+				<artifactId>core</artifactId>
+				<version>${zxing.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi</artifactId>
+				<version>${poi.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi-ooxml</artifactId>
+				<version>${poi.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi-ooxml-schemas</artifactId>
+				<exclusions>
+					<exclusion>
+						<groupId>xerces</groupId>
+						<artifactId>xercesImpl</artifactId>
+					</exclusion>
+				</exclusions>
+				<version>${poi.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+</project>

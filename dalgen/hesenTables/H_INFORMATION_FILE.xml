@@ -1,0 +1,67 @@
+<!DOCTYPE table SYSTEM "../config/table-config-1.0.dtd">
+<table sqlname="H_INFORMATION_FILE" physicalName="H_INFORMATION_FILE" remark="H_INFORMATION_FILE">
+    <!--  特殊字符说明  &lt;&gt;   <> -->
+
+    <operation name="insert" paramtype="object" remark="插入表:H_INFORMATION_FILE">
+        <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER">
+            SELECT
+            LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO H_INFORMATION_FILE(
+            ID
+            ,INFO_ID
+            ,ORDERS
+            ,PIC_URL
+            ,VERSION
+            ,FILE_TYPE
+            ,CREATE_TIME
+            ,CREATE_USER
+            ,DELETE_FLAG
+            ,UPDATE_TIME
+            ,UPDATE_USER
+        )VALUES(
+             #{id,jdbcType=VARCHAR}
+            , #{infoId,jdbcType=VARCHAR}
+            , #{orders,jdbcType=INTEGER}
+            , #{picUrl,jdbcType=VARCHAR}
+            , #{version,jdbcType=INTEGER}
+            , #{fileType,jdbcType=VARCHAR}
+            , #{createTime,jdbcType=BIGINT}
+            , #{createUser,jdbcType=VARCHAR}
+            , #{deleteFlag,jdbcType=CHAR}
+            , #{updateTime,jdbcType=BIGINT}
+            , #{updateUser,jdbcType=VARCHAR}
+        )
+    </operation>
+
+    <operation name="update" paramtype="object" remark="更新表:H_INFORMATION_FILE">
+        UPDATE H_INFORMATION_FILE
+        SET
+            INFO_ID         = #{infoId,jdbcType=VARCHAR}
+            ,ORDERS          = #{orders,jdbcType=INTEGER}
+            ,PIC_URL         = #{picUrl,jdbcType=VARCHAR}
+            ,VERSION         = #{version,jdbcType=INTEGER}
+            ,FILE_TYPE       = #{fileType,jdbcType=VARCHAR}
+            ,CREATE_TIME     = #{createTime,jdbcType=BIGINT}
+            ,CREATE_USER     = #{createUser,jdbcType=VARCHAR}
+            ,DELETE_FLAG     = #{deleteFlag,jdbcType=CHAR}
+            ,UPDATE_TIME     = #{updateTime,jdbcType=BIGINT}
+            ,UPDATE_USER     = #{updateUser,jdbcType=VARCHAR}
+        WHERE
+            ID              = #{id,jdbcType=VARCHAR}
+    </operation>
+
+    <operation name="deleteByPrimary" multiplicity="one" remark="根据主键删除数据:H_INFORMATION_FILE">
+        DELETE FROM
+            H_INFORMATION_FILE
+        WHERE
+            ID = #{id,jdbcType=VARCHAR}
+    </operation>
+
+    <operation name="getByPrimary" multiplicity="one" remark="根据主键获取数据:H_INFORMATION_FILE">
+        SELECT *
+        FROM H_INFORMATION_FILE
+        WHERE
+            ID = #{id,jdbcType=VARCHAR}
+    </operation>
+</table>

@@ -1,0 +1,76 @@
+<!DOCTYPE table SYSTEM "../config/table-config-1.0.dtd">
+<table sqlname="H_INFORMATION" physicalName="H_INFORMATION" remark="H_INFORMATION">
+    <!--  特殊字符说明  &lt;&gt;   <> -->
+
+    <operation name="insert" paramtype="object" remark="插入表:H_INFORMATION">
+        <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER">
+            SELECT
+            LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO H_INFORMATION(
+            ID
+            ,ORDERS
+            ,INFO_URL
+            ,VERSION
+            ,DOWN_TIME
+            ,INFO_TYPE
+            ,INFO_TITLE
+            ,REPORT_STS
+            ,CREATE_TIME
+            ,CREATE_USER
+            ,DELETE_FLAG
+            ,REPORT_TIME
+            ,UPDATE_TIME
+            ,UPDATE_USER
+        )VALUES(
+             #{id,jdbcType=VARCHAR}
+            , #{orders,jdbcType=INTEGER}
+            , #{infoUrl,jdbcType=VARCHAR}
+            , #{version,jdbcType=INTEGER}
+            , #{downTime,jdbcType=TIMESTAMP}
+            , #{infoType,jdbcType=INTEGER}
+            , #{infoTitle,jdbcType=VARCHAR}
+            , #{reportSts,jdbcType=INTEGER}
+            , #{createTime,jdbcType=BIGINT}
+            , #{createUser,jdbcType=VARCHAR}
+            , #{deleteFlag,jdbcType=CHAR}
+            , #{reportTime,jdbcType=TIMESTAMP}
+            , #{updateTime,jdbcType=BIGINT}
+            , #{updateUser,jdbcType=VARCHAR}
+        )
+    </operation>
+
+    <operation name="update" paramtype="object" remark="更新表:H_INFORMATION">
+        UPDATE H_INFORMATION
+        SET
+            ORDERS          = #{orders,jdbcType=INTEGER}
+            ,INFO_URL        = #{infoUrl,jdbcType=VARCHAR}
+            ,VERSION         = #{version,jdbcType=INTEGER}
+            ,DOWN_TIME       = #{downTime,jdbcType=TIMESTAMP}
+            ,INFO_TYPE       = #{infoType,jdbcType=INTEGER}
+            ,INFO_TITLE      = #{infoTitle,jdbcType=VARCHAR}
+            ,REPORT_STS      = #{reportSts,jdbcType=INTEGER}
+            ,CREATE_TIME     = #{createTime,jdbcType=BIGINT}
+            ,CREATE_USER     = #{createUser,jdbcType=VARCHAR}
+            ,DELETE_FLAG     = #{deleteFlag,jdbcType=CHAR}
+            ,REPORT_TIME     = #{reportTime,jdbcType=TIMESTAMP}
+            ,UPDATE_TIME     = #{updateTime,jdbcType=BIGINT}
+            ,UPDATE_USER     = #{updateUser,jdbcType=VARCHAR}
+        WHERE
+            ID              = #{id,jdbcType=VARCHAR}
+    </operation>
+
+    <operation name="deleteByPrimary" multiplicity="one" remark="根据主键删除数据:H_INFORMATION">
+        DELETE FROM
+            H_INFORMATION
+        WHERE
+            ID = #{id,jdbcType=VARCHAR}
+    </operation>
+
+    <operation name="getByPrimary" multiplicity="one" remark="根据主键获取数据:H_INFORMATION">
+        SELECT *
+        FROM H_INFORMATION
+        WHERE
+            ID = #{id,jdbcType=VARCHAR}
+    </operation>
+</table>
